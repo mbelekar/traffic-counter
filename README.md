@@ -122,7 +122,7 @@ To keep it simple and meet all the requirements, I have made following assumptio
 
 #### Application
 
-- `App` ties together `Loader` and `Aggregator` classes to generate the final output.
+- `Main` ties together `Loader` and `Aggregator` classes to generate the final output.
 
 #### Tests:
 - Unit tests are written using `spark-fast-tests` to cover the functionality.

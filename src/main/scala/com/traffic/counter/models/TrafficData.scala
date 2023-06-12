@@ -3,7 +3,7 @@ package com.traffic.counter.models
 import java.sql.{Date, Timestamp}
 import java.time.ZoneOffset
 
-case class TrafficData(timestamp: Timestamp,  numCars: Int) {
+case class TrafficData(timestamp: Timestamp, numCars: Int) {
   def as[T](implicit f: TrafficData => T): T = f(this)
 }
 

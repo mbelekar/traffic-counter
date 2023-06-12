@@ -1,4 +1,5 @@
 package com.traffic.counter
+
 import org.apache.log4j.LogManager
 
 object Main extends SparkSessionWrapper with App {

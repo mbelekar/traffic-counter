@@ -13,16 +13,16 @@ object Aggregator extends SparkSessionWrapper {
 
   def totalCarsByDate(ds: Dataset[EnrichedTrafficData]): DataFrame =
     ds.groupBy("date")
-    .agg(sum("numCars"))
-    .select(col("date").as("Date"), col("sum(numCars)").as("Number of Cars"))
-    .orderBy("Date")
+      .agg(sum("numCars"))
+      .select(col("date").as("Date"), col("sum(numCars)").as("Number of Cars"))
+      .orderBy("Date")
 
   def topThreeHalfHoursWithMostCars(ds: Dataset[EnrichedTrafficData]): Dataset[Row] =
     ds.groupBy("isoDate")
-    .agg(sum("numCars"))
-    .orderBy(col("sum(numCars)").desc)
-    .select(col("isoDate").as("Date"), col("sum(numCars)").as("Number of Cars"))
-    .limit(3)
+      .agg(sum("numCars"))
+      .orderBy(col("sum(numCars)").desc)
+      .select(col("isoDate").as("Date"), col("sum(numCars)").as("Number of Cars"))
+      .limit(3)
 
   def contiguousPeriodWithLeastCars(ds: Dataset[EnrichedTrafficData], windowDuration: String): DataFrame = {
     ds.groupBy(window($"timestamp", windowDuration))
