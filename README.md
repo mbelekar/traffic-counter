@@ -56,14 +56,14 @@ number of cars seen on that day (eg. 2016-11-23 289) for all days listed in the 
 ```
 
 ### Set up
+This is a spark application that has been developed with jdk 17 and Scala 2
 
 ### How to run this application
 1. Run spark cluster by running `auto/start-spark` in your terminal. This is a docker compose set up using bitnami docker image for spark.
-2. Application contains data file in `src/main/resources` directory
-2. Application can be run using one of the two ways:
-   - Application can be run using an editor like IntelliJ. To run application from IntelliJ please add following VM options to the run configuration
-     `--add-exports java.base/sun.nio.ch=ALL-UNNAMED --add-exports=java.base/sun.util.calendar=ALL-UNNAMED`
-   - From command line using `auto/run`. The `auto/run` is a wrapper around `sbt run`
+2. Application contains data file in `src/main/resources` directory.
+3. Application can be run using one of the two ways:
+   - Application can be run using an editor like IntelliJ. To run application from IntelliJ please add following VM options to the run configuration `--add-exports java.base/sun.nio.ch=ALL-UNNAMED --add-exports=java.base/sun.util.calendar=ALL-UNNAMED`
+   - From command line using `sbt run`
    
 #### To run all the tests:
 
@@ -76,7 +76,7 @@ $ auto/start-spark
 Run unit tests:
 
 ```
-$ auto/test
+$ sbt compile test
 ```
 
 #### Run Application:
@@ -90,7 +90,7 @@ $ auto/start-spark
 Run application:
 
 ```
-$ auto/run
+$ sbt run
 ```
 
 Stop spark cluster
