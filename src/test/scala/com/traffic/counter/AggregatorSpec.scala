@@ -37,7 +37,7 @@ class AggregatorSpec extends AnyFunSpec with SparkSessionTestWrapper with Datase
       val actualDF = Aggregator.totalCarsByDate(ds).toDF()
       val expectedSchema = List(
         StructField("Date", DateType, nullable = false),
-        StructField("Total Cars", LongType, nullable = false)
+        StructField("Number of Cars", LongType, nullable = false)
       )
       val expectedData = Seq(
         Row(Date.valueOf("2021-12-01"), 17.toLong),
@@ -55,7 +55,7 @@ class AggregatorSpec extends AnyFunSpec with SparkSessionTestWrapper with Datase
       val actualDF = Aggregator.topThreeHalfHoursWithMostCars(ds).toDF()
       val expectedSchema = List(
         StructField("Date", StringType, nullable = false),
-        StructField("Total Cars", LongType, nullable = false)
+        StructField("Number of Cars", LongType, nullable = false)
       )
       val expectedData = Seq(
         Row("2021-12-08T18:00:00", 33.toLong),
@@ -74,7 +74,7 @@ class AggregatorSpec extends AnyFunSpec with SparkSessionTestWrapper with Datase
       val expectedSchema = List(
         StructField("Window start", TimestampType, nullable = false),
         StructField("Window end", TimestampType, nullable = false),
-        StructField("Total Cars", LongType, nullable = false)
+        StructField("Number of Cars", LongType, nullable = false)
       )
       val expectedData = Seq(
         Row(Timestamp.valueOf("2021-12-08 23:00:00"), Timestamp.valueOf("2021-12-09 00:30:00"), 11.toLong)
