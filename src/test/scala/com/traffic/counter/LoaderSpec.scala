@@ -2,7 +2,7 @@ package com.traffic.counter
 
 import com.github.mrpowers.spark.fast.tests.DatasetComparer
 import com.traffic.counter.SparkSessionTestWrapper.spark.implicits._
-import com.traffic.counter.models.TrafficData
+import com.traffic.counter.models.Record
 import org.apache.log4j.{LogManager, Logger}
 import org.apache.spark.sql.types._
 import org.apache.spark.sql.{Dataset, Row}
@@ -14,8 +14,8 @@ import scala.util.{Failure, Success}
 class LoaderSpec extends AnyFunSpec with SparkSessionTestWrapper with DatasetComparer {
   val logger: Logger = LogManager.getLogger("test")
 
-  def actualDS(sourceFile: String): Dataset[TrafficData] = Loader.createDataSet(sourceFile, logger) match {
-    case Failure(_) => List.empty[TrafficData].toDS()
+  def actualDS(sourceFile: String): Dataset[Record] = Loader.createDataSet(sourceFile, logger) match {
+    case Failure(_) => List.empty[Record].toDS()
     case Success(ds) => ds
   }
 

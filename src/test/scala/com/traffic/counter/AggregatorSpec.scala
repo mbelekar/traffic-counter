@@ -1,7 +1,7 @@
 package com.traffic.counter
 
 import com.github.mrpowers.spark.fast.tests.DatasetComparer
-import com.traffic.counter.models.{EnrichedTrafficData, TrafficData}
+import com.traffic.counter.models.{EnrichedRecord, Record}
 import org.apache.log4j.{LogManager, Logger}
 import org.apache.spark.sql.types._
 import org.apache.spark.sql.{Dataset, Row}
@@ -16,8 +16,8 @@ class AggregatorSpec extends AnyFunSpec with SparkSessionTestWrapper with Datase
 
   val sourceFile = "src/test/resources/data.csv"
 
-  val maybeDs: Try[Dataset[TrafficData]] = Loader.createDataSet(sourceFile, logger)
-  val ds: Dataset[EnrichedTrafficData] = Loader.toEnrichedDS(maybeDs)
+  val maybeDs: Try[Dataset[Record]] = Loader.createDataSet(sourceFile, logger)
+  val ds: Dataset[EnrichedRecord] = Loader.toEnrichedDS(maybeDs)
 
   describe("Aggregate") {
     it("should return total cars for all days") {

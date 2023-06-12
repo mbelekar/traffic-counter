@@ -51,12 +51,13 @@ number of cars seen on that day (eg. 2016-11-23 289) for all days listed in the 
 #### Example Output for incorrect file path or no data:
 
 ```
-23/06/12 17:24:23 ERROR TrafficDataApp: Exception occurred: org.apache.spark.sql.AnalysisException: [PATH_NOT_FOUND] Path does not exist: file:/Users/manasibelekar/project/traffic-counter/src/main/resources/foo.csv.
-23/06/12 17:24:24 ERROR TrafficDataApp: No data found. Check if your file path is correct or if file has valid data! 
+23/06/12 17:24:23 ERROR RecordApp: Exception occurred: org.apache.spark.sql.AnalysisException: [PATH_NOT_FOUND] Path does not exist: file:/Users/manasibelekar/project/traffic-counter/src/main/resources/foo.csv.
+23/06/12 17:24:24 ERROR RecordApp: No data found. Check if your file path is correct or if file has valid data! 
 ```
 
 ### Set up
-This is a spark application that has been developed with jdk 17 and Scala 2
+This is a spark application that has been developed with jdk 17 and Scala 2. 
+`sbt`, `Scala`, `docker` and `docker-compose`  are pre-requisites for running this application.
 
 ### How to run this application
 1. Run spark cluster by running `auto/start-spark` in your terminal. This is a docker compose set up using bitnami docker image for spark.
@@ -109,8 +110,8 @@ To keep it simple and meet all the requirements, I have made following assumptio
 
 #### Case classes (models):
 
-- `TrafficData` models a single record from the data file
-- `EnrichedTrafficData` models enriched record that has additional fields
+- `Record` models a single record from the data file
+- `EnrichedRecord` models enriched record that has additional fields
 
 #### Data Load:
 
