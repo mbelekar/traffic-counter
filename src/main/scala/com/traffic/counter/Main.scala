@@ -2,7 +2,7 @@ package com.traffic.counter
 import org.apache.log4j.LogManager
 
 object Main extends SparkSessionWrapper with App {
-  val logger = LogManager.getLogger("TrafficDataApp")
+  val logger = LogManager.getLogger("TrafficCounterApp")
 
   private val maybeDs = Loader.createDataSet("src/main/resources/*.csv", logger)
   val ds = Loader.toEnrichedDS(maybeDs)

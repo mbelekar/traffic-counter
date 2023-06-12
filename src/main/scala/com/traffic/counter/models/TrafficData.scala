@@ -8,7 +8,7 @@ case class TrafficData(timestamp: Timestamp,  numCars: Int) {
 }
 
 case object TrafficData {
-  implicit def toEnrichedTrafficData: TrafficData => EnrichedTrafficData = (a: TrafficData) => {
+  implicit val toEnrichedTrafficData: TrafficData => EnrichedTrafficData = (a: TrafficData) => {
     val localDateTime = a.timestamp.toLocalDateTime
     val isoDateTime: String = localDateTime.toInstant(ZoneOffset.UTC).toString.replace("Z", "")
     val date: Date = Date.valueOf(localDateTime.toLocalDate)
