@@ -51,8 +51,8 @@ number of cars seen on that day (eg. 2016-11-23 289) for all days listed in the 
 #### Example Output for incorrect file path or no data:
 
 ```
-23/06/12 17:24:23 ERROR RecordApp: Exception occurred: org.apache.spark.sql.AnalysisException: [PATH_NOT_FOUND] Path does not exist: file:/Users/manasibelekar/project/traffic-counter/src/main/resources/foo.csv.
-23/06/12 17:24:24 ERROR RecordApp: No data found. Check if your file path is correct or if file has valid data! 
+23/06/12 17:24:23 ERROR TrafficCounter: Exception occurred: org.apache.spark.sql.AnalysisException: [PATH_NOT_FOUND] Path does not exist: file:/Users/manasibelekar/project/traffic-counter/src/main/resources/foo.csv.
+23/06/12 17:24:24 ERROR TrafficCounter: No data found. Check if your file path is correct or if file has valid data!
 ```
 
 ### Set up
